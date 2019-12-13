@@ -5,7 +5,6 @@
 }
 
 body {
-    /* min-height: 100vh; */
     background-color: black;
     font-family: sans-serif;
 }
@@ -15,11 +14,12 @@ body {
     margin: 0 auto;
 }
 
-.card-container {
+.cards-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     background-color: #1E2D3B;
+    min-height: calc(100vh - 80px);
 }
 
 header {
@@ -37,10 +37,6 @@ header {
     padding: 20px;
 }
 
-main {
-    min-height: calc(100vh - 80px);
-}
-
 .card {
     height: 350px;
     width: 200px;
@@ -51,13 +47,13 @@ main {
 
 .card img {
     width: 100%;
-    /* padding: 20px; */
 }
 
 .card h3 {
+    text-transform: uppercase;
     text-align: center;
     color: white;
-    margin: 20px 0 40px 0;
+    margin: 20px 0;
 }
 
 .card p {

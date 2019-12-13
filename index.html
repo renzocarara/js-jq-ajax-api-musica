@@ -20,18 +20,19 @@
     </header>
 
     <main>
-        <div class="container card-container">
+        <div class="container cards-container">
             <!-- cards musicali generate dinamicamente con i dati recuperati tramite chiamata AJAX alla API di boolean -->
+
         </div>
     </main>
 
-    <script id="template-music-card" type="text/x-handlebars-template">
-        <div class="card">
+    <script id="music-card-template" type="text/x-handlebars-template">
+        <div class="card" data-genre="{{ genre }}">
             {{!-- template per la creazione di una singola card musicale --}}
-            <img src="{{ cover }}" alt="{{ titolo }} di {{ autore }}">
-            <h3>{{ titolo }}</h3>
-            <p>{{ autore }}</p>
-            <p>{{ anno }}</p>
+            <img src="{{ poster }}" alt="{{ title }} di {{ author }}">
+            <h3>{{ title }}</h3>
+            <p>{{ author }}</p>
+            <p>{{ year }}</p>
         </div>
     </script>
 
