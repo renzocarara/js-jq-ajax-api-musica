@@ -16,7 +16,7 @@ $(document).ready(function() {
             handleResponseData(musicCardsData.response);
         },
         error: function() {
-            alert("ERRORE: il server non risponde!");
+            alert("ERRORE! non sono riuscito a recuperare i dati...");
         }
     });
 
@@ -25,21 +25,23 @@ $(document).ready(function() {
     // ascolto evento .change sul tag 'select' per intercettare la selezione dell'utente
     $('#card-genre').change(function() {
 
+        // mi salvo il genere selezionato dall'utente
         var genreSelected = $('#card-genre').val();
 
-        // parto da una situazione in cui tutti i generi delle card sono visibili
-        $('.card').show();
+        // parto sempre da una situazione in cui tutte le card non sono visibili
+        $('.card').fadeOut();
 
         // scorro tutte le card con un ciclo 'each'
         $('.card').each(function() {
 
             // uso  l'attributo data-genre per individuare le card che vuole l'utente
-            if ((genreSelected.toLowerCase() != "all") &&
-                ($(this).attr("data-genre").toLowerCase() != genreSelected.toLowerCase())) {
+            if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
+                (genreSelected.toLowerCase() == "all")) {
 
-                // nascondo la card
-                $(this).hide();
+                // rendo visibile le card selezionate dall'utente
+                $(this).fadeIn();
             }
+
         }); // end each
 
     }); // end function
@@ -67,7 +69,7 @@ function handleResponseData(cardsData) {
             'title': cardsData[i].title,
             'year': cardsData[i].year
         };
-        // console.log("i=", i, "\ncontext:", context);
+
         // chiamo la funzione generata da HANDLEBARS per popolare il template
         // passo alla funzione l'oggetto che contiene i valori che andranno a sostituire i placeholder,
         var card = cardFunction(context);

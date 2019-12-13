@@ -16,7 +16,7 @@ body {
 
 .cards-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: #1E2D3B;
     /* altezza viewport - altezza header - altezza tag selezione genere */
@@ -45,6 +45,7 @@ header {
     padding: 20px;
     background-color: #333e49;
     margin-top: 40px;
+    margin-left: 40px;
 }
 
 .card img {
