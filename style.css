@@ -69,7 +69,7 @@ header {
 }
 
 #card-genre option:nth-child(2) {
-    background-color: red;
+    background-color: blue;
     color: white;
 }
 
@@ -79,11 +79,27 @@ header {
 }
 
 #card-genre option:nth-child(4) {
-    background-color: black;
-    color: white;
+    background-color: yellow;
+    color: black;
 }
 
 #card-genre option:nth-child(5) {
-    background-color: blue;
+    background-color: red;
     color: white;
+}
+
+[data-genre=Metal] {
+    border: 2px solid yellow;
+}
+
+[data-genre=Rock] {
+    border: 2px solid red;
+}
+
+[data-genre=Jazz] {
+    border: 2px solid green;
+}
+
+[data-genre=Pop] {
+    border: 2px solid blue;
 }
