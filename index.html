@@ -8,96 +8,36 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <title>Document</title>
+    <title>Booolean class#8 - Music cards selezionabili per genere</title>
 </head>
 
 <body>
-
 
     <header>
         <div class="container header-container">
             <img src="images/logo.png" alt="logo spotify">
         </div>
-
     </header>
+
     <main>
         <div class="container card-container">
-
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>TITOLO DEL CD AL CENTRO</h3>
-                <p>autore</p>
-                <p>anno</p>
-            </div>
-
-
-
+            <!-- cards musicali generate dinamicamente con i dati recuperati tramite chiamata AJAX alla API di boolean -->
         </div>
     </main>
 
+    <script id="template-music-card" type="text/x-handlebars-template">
+        <div class="card">
+            {{!-- template per la creazione di una singola card musicale --}}
+            <img src="{{ cover }}" alt="{{ titolo }} di {{ autore }}">
+            <h3>{{ titolo }}</h3>
+            <p>{{ autore }}</p>
+            <p>{{ anno }}</p>
+        </div>
+    </script>
 
-
-
-    <!-- template card musicale -->
-
-
-    <script id="template-msg-wrapper" type="text/x-handlebars-template"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="main.js"></script>
+
 </body>
 
 </html>
