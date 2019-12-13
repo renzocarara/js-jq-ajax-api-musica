@@ -19,7 +19,9 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     background-color: #1E2D3B;
-    min-height: calc(100vh - 80px);
+    /* altezza viewport - altezza header - altezza tag selezione genere */
+    min-height: calc(100vh - 80px - 65px);
+    padding-bottom: 40px;
 }
 
 header {
@@ -59,4 +61,9 @@ header {
 .card p {
     text-align: center;
     color: gray;
+}
+
+#card-genre {
+    margin: 20px 0;
+    font-size: 18px;
 }

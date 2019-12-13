@@ -22,13 +22,27 @@ $(document).ready(function() {
 
     // BONUS - permettere selezione del genere della music card
 
-    // usare evento .change per intercettare il cambiamento del valore dell'elemento 'select'
-    // usare attributo data-genre
-    // usare each per scorrere le cards
+    // ascolto evento .change sul tag 'select' per intercettare la selezione dell'utente
+    $('#card-genre').change(function() {
 
+        var genreSelected = $('#card-genre').val();
 
+        // parto da una situazione in cui tutti i generi delle card sono visibili
+        $('.card').show();
 
+        // scorro tutte le card con un ciclo 'each'
+        $('.card').each(function() {
 
+            // uso  l'attributo data-genre per individuare le card che vuole l'utente
+            if ((genreSelected.toLowerCase() != "all") &&
+                ($(this).attr("data-genre").toLowerCase() != genreSelected.toLowerCase())) {
+
+                // nascondo la card
+                $(this).hide();
+            }
+        }); // end each
+
+    }); // end function
 
 }); // fine document ready
 
