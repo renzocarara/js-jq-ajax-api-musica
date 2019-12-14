@@ -12,7 +12,6 @@ $(document).ready(function() {
         url: 'https://flynn.boolean.careers/exercises/api/array/music',
         method: 'get',
         success: function(musicCardsData) {
-            console.log("musicCardsData.response", musicCardsData.response);
             handleResponseData(musicCardsData.response);
         },
         error: function() {
@@ -21,12 +20,41 @@ $(document).ready(function() {
     });
 
     // BONUS - permettere selezione del genere della music card
-
     // ascolto evento .change sul tag 'select' per intercettare la selezione dell'utente
     $('#card-genre').change(function() {
 
         // mi salvo il genere selezionato dall'utente
         var genreSelected = $('#card-genre').val();
+
+        // cambio il colore di sfondo della barra di selezione genere
+        switch (genreSelected) {
+            case "pop":
+                $('.select-container').addClass("bgc-blue").removeClass("bgc-purple bgc-red bgc-green bgc-none");
+                break;
+            case "jazz":
+                $('.select-container').addClass("bgc-green").removeClass("bgc-purple bgc-blue bgc-red bgc-none");
+                break;
+            case "metal":
+                $('.select-container').addClass("bgc-purple").removeClass("bgc-red bgc-blue bgc-green bgc-none");
+                break;
+            case "rock":
+                $('.select-container').addClass("bgc-red").removeClass("bgc-purple bgc-blue bgc-green bgc-none");
+                break;
+            default:
+                $('.select-container').addClass("bgc-none").removeClass("bgc-purple bgc-blue bgc-green bgc-red");
+        }
+
+        // parto da una situazione in cui tutte le icone non sono visibili
+        $('.select-container i').fadeOut();
+        // scorro tutte le icone con un ciclo 'each'
+        $('.select-container i').each(function() {
+            // uso  l'attributo data-genre
+            if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
+                (genreSelected.toLowerCase() == "all")) {
+                // rendo visibili le card selezionate dall'utente
+                $(this).fadeIn();
+            }
+        }); // end each
 
         // parto sempre da una situazione in cui tutte le card non sono visibili
         $('.card').fadeOut();
@@ -34,14 +62,13 @@ $(document).ready(function() {
         // scorro tutte le card con un ciclo 'each'
         $('.card').each(function() {
 
-            // uso  l'attributo data-genre per individuare le card che vuole l'utente
+            // uso  l'attributo data-genre per individuare le card che vuol vedere l'utente
             if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
                 (genreSelected.toLowerCase() == "all")) {
 
-                // rendo visibile le card selezionate dall'utente
+                // rendo visibili le card selezionate dall'utente
                 $(this).fadeIn();
             }
-
         }); // end each
 
     }); // end function
@@ -73,7 +100,6 @@ function handleResponseData(cardsData) {
         // chiamo la funzione generata da HANDLEBARS per popolare il template
         // passo alla funzione l'oggetto che contiene i valori che andranno a sostituire i placeholder,
         var card = cardFunction(context);
-        console.log("card popolata:", card);
 
         // aggiungo nella mia pagina il codice HTML generato da HANDLEBARS
         $('.cards-container').append(card);

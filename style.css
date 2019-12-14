@@ -63,33 +63,42 @@ header {
     color: gray;
 }
 
+.select-container {
+    background-color: none;
+}
+
 #card-genre {
-    margin: 20px 0;
+    margin: 20px;
     font-size: 18px;
+    color: black;
+}
+
+#card-genre option {
+    color: white;
+}
+
+#card-genre option:nth-child(1) {
+    color: black;
 }
 
 #card-genre option:nth-child(2) {
     background-color: blue;
-    color: white;
 }
 
 #card-genre option:nth-child(3) {
     background-color: green;
-    color: white;
 }
 
 #card-genre option:nth-child(4) {
-    background-color: yellow;
-    color: black;
+    background-color: purple;
 }
 
 #card-genre option:nth-child(5) {
     background-color: red;
-    color: white;
 }
 
 [data-genre=Metal] {
-    border: 2px solid yellow;
+    border: 2px solid purple;
 }
 
 [data-genre=Rock] {
@@ -102,4 +111,30 @@ header {
 
 [data-genre=Pop] {
     border: 2px solid blue;
+}
+
+.bgc-purple {
+    background-color: purple;
+}
+
+.bgc-red {
+    background-color: red;
+}
+
+.bgc-green {
+    background-color: green;
+}
+
+.bgc-blue {
+    background-color: blue;
+}
+
+.bgc-none {
+    background-color: none;
+}
+
+.select-container i {
+    margin: 15px 30px 15px 0;
+    color: white;
+    float: right;
 }
