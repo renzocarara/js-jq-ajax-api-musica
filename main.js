@@ -51,17 +51,15 @@ $(document).ready(function() {
             // uso  l'attributo data-genre
             if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
                 (genreSelected.toLowerCase() == "all")) {
-                // rendo visibili le card selezionate dall'utente
+                // rendo visibile l'icona associata al genere
                 $(this).fadeIn();
             }
         }); // end each
 
         // parto sempre da una situazione in cui tutte le card non sono visibili
         $('.card').fadeOut();
-
         // scorro tutte le card con un ciclo 'each'
         $('.card').each(function() {
-
             // uso  l'attributo data-genre per individuare le card che vuol vedere l'utente
             if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
                 (genreSelected.toLowerCase() == "all")) {
@@ -81,7 +79,7 @@ function handleResponseData(cardsData) {
 
     // recupero il codice html dal template HANDLEBARS
     var cardTemplate = $('#music-card-template').html();
-    console.log("cardTemplate", cardTemplate);
+
     // compilo il template HANDLEBARS, lui mi restituisce un funzione
     var cardFunction = Handlebars.compile(cardTemplate);
 
