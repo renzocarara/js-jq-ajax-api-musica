@@ -138,3 +138,19 @@ header {
     color: white;
     float: right;
 }
+
+@media screen and (max-width:493px) {
+    .select-container i {
+        margin: 15px 10px 15px 0;
+    }
+}
+
+@media screen and (max-width:379px) {
+    .select-container i {
+        margin: 15px 5px 15px 0;
+    }
+
+    #card-genre {
+        margin: 20px 0 20px 0;
+    }
+}
