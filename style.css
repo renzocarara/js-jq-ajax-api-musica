@@ -64,7 +64,7 @@ header {
 }
 
 .select-container {
-    background-color: none;
+    background-color: darkgrey;
 }
 
 #card-genre {
@@ -130,7 +130,7 @@ header {
 }
 
 .bgc-none {
-    background-color: none;
+    background-color: darkgrey;
 }
 
 .select-container i {

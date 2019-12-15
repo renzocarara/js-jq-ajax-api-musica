@@ -26,35 +26,30 @@ $(document).ready(function() {
         // mi salvo il genere selezionato dall'utente
         var genreSelected = $('#card-genre').val();
 
-        // cambio il colore di sfondo della barra di selezione genere
+        $('.select-container i').fadeOut(); // nascondo tutte le icone
+
+        // cambio il colore di sfondo della barra di selezione genere e visualizzo icona associata
         switch (genreSelected) {
             case "pop":
                 $('.select-container').addClass("bgc-blue").removeClass("bgc-purple bgc-red bgc-green bgc-none");
+                $('[data-genre=pop]').fadeIn();
                 break;
             case "jazz":
                 $('.select-container').addClass("bgc-green").removeClass("bgc-purple bgc-blue bgc-red bgc-none");
+                $('[data-genre=jazz]').fadeIn();
                 break;
             case "metal":
                 $('.select-container').addClass("bgc-purple").removeClass("bgc-red bgc-blue bgc-green bgc-none");
+                $('[data-genre=metal]').fadeIn();
                 break;
             case "rock":
                 $('.select-container').addClass("bgc-red").removeClass("bgc-purple bgc-blue bgc-green bgc-none");
+                $('[data-genre=rock]').fadeIn();
                 break;
             default:
                 $('.select-container').addClass("bgc-none").removeClass("bgc-purple bgc-blue bgc-green bgc-red");
+                $('.select-container i').fadeIn(); // visualizzo tute le icone
         }
-
-        // parto da una situazione in cui tutte le icone non sono visibili
-        $('.select-container i').fadeOut();
-        // scorro tutte le icone con un ciclo 'each'
-        $('.select-container i').each(function() {
-            // uso  l'attributo data-genre
-            if (($(this).attr("data-genre").toLowerCase() == genreSelected.toLowerCase()) ||
-                (genreSelected.toLowerCase() == "all")) {
-                // rendo visibile l'icona associata al genere
-                $(this).fadeIn();
-            }
-        }); // end each
 
         // parto sempre da una situazione in cui tutte le card non sono visibili
         $('.card').fadeOut();
